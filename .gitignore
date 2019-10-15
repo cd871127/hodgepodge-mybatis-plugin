@@ -1,0 +1,15 @@
+.gradle/
+.idea/
+.idea/httpRequests/http-requests-log.http
+build/
+*/build/
+*.iml
+.vscode
+*.tar.gz
+*.jar
+config/git*.log
+*/__pycache__/
+**/node_modules/
+*.tgz
+
+
