@@ -30,7 +30,7 @@ public abstract class AbstractMultiDataSource extends AbstractDataSource {
 
     protected DataSource determineTargetDataSource() {
         Object lookupKey = determineCurrentLookupKey();
-        DataSource dataSource = this.targetDataSources.get(lookupKey);
+        DataSource dataSource = this.targetDataSources == null ? null : this.targetDataSources.get(lookupKey);
         if (dataSource == null && (this.lenientFallback || lookupKey == null)) {
             dataSource = this.defaultTargetDataSource;
         }
