@@ -7,6 +7,7 @@ import java.util.Map;
  * @author anthonychen
  */
 public interface DataSourceBuilder {
+
     /**
      * @param config
      * @return

@@ -1,4 +1,4 @@
-package io.github.cd871127.hodgepodge.mybatis.config;
+package io.github.cd871127.hodgepodge.mybatis.datasource.builder;
 
 import lombok.Getter;
 
@@ -15,7 +15,7 @@ public enum DataSourceType {
     /**
      *
      */
-    HIKARI("");
+    HIKARI("io.github.cd871127.hodgepodge.mybatis.datasource.builder.HikariDataSourceBuilder");
 
     DataSourceType(String builderClass) {
         this.builderClass = builderClass;

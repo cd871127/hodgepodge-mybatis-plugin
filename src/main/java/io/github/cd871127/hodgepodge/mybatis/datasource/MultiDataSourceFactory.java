@@ -1,7 +1,7 @@
 package io.github.cd871127.hodgepodge.mybatis.datasource;
 
 import io.github.cd871127.hodgepodge.mybatis.config.ConfigParser;
-import io.github.cd871127.hodgepodge.mybatis.config.DataSourceType;
+import io.github.cd871127.hodgepodge.mybatis.datasource.builder.DataSourceType;
 import io.github.cd871127.hodgepodge.mybatis.config.YamlConfigParser;
 import io.github.cd871127.hodgepodge.mybatis.datasource.builder.DataSourceBuilder;
 import io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder;

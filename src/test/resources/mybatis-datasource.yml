@@ -13,4 +13,5 @@ hodgepodge:
         url: jdbc:mysql://mysql.cd871127.github.io:3306/hodgepodge_read
         username: cdistc
         password: cd123321
-        builderClass: io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder
+        dataSourceType: HIKARI
+#        builderClass: io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder

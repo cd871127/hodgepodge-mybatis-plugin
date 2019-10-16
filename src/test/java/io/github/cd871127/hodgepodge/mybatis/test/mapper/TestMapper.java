@@ -8,11 +8,11 @@ import org.apache.ibatis.annotations.Mapper;
 public interface TestMapper {
 
     @Insert("insert into t_test(id) value(#{id})")
-    @TargetDataSource(name = "d1")
+    @TargetDataSource("d1")
     int insert(String id);
 
     @Insert("insert into t_test(id) value(#{id})")
-    @TargetDataSource(name ="d2")
+    @TargetDataSource("d2")
     int insert2(String id);
 
 
