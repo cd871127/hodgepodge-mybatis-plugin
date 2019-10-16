@@ -18,7 +18,6 @@ public class PluginTest {
         try {
             Reader reader = Resources.getResourceAsReader("mybatis-config.xml");
             sqlSessionFactory = new SqlSessionFactoryBuilder().build(reader);
-
             reader.close();
         } catch (IOException e) {
             e.printStackTrace();

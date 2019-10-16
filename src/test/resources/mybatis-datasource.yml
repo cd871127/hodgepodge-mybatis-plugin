@@ -1,0 +1,16 @@
+hodgepodge:
+  mybatis:
+    datasource:
+      - name: d1
+        defaultDataSource: true
+        driver: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://mysql.cd871127.github.io:3306/hodgepodge
+        username: cdistc
+        password: cd123321
+        dataSourceType: POOL
+      - name: d2
+        driver: com.mysql.cj.jdbc.Driver
+        url: jdbc:mysql://mysql.cd871127.github.io:3306/hodgepodge_read
+        username: cdistc
+        password: cd123321
+        builderClass: io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder

@@ -13,7 +13,7 @@ repositories {
         url "http://maven.aliyun.com/nexus/content/groups/public"
     }
 }
-
+[compileJava, compileTestJava, javadoc]*.options*.encoding = 'UTF-8'
 dependencies {
     compile group: 'org.mybatis', name: 'mybatis', version: '3.5.2'
     compile group: 'org.apache.commons', name: 'commons-lang3', version: '3.8.1'
@@ -22,6 +22,8 @@ dependencies {
     compile group: 'org.projectlombok', name: 'lombok', version: '1.18.8'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.28'
     compile group: 'ch.qos.logback', name: 'logback-core', version: '1.2.3'
+    compile group: 'org.yaml', name: 'snakeyaml', version: '1.25'
+    compile group: 'hikari-cp', name: 'hikari-cp', version: '2.9.0'
 
     testCompile group: 'ch.qos.logback', name: 'logback-classic', version: '1.2.3'
 
