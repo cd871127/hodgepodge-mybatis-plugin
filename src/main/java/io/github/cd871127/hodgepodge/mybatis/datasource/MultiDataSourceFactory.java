@@ -62,7 +62,11 @@ public class MultiDataSourceFactory implements DataSourceFactory {
                 DataSource dataSource = map2DataSource(configMap);
                 targetDataSources.put(configMap.get("name"), dataSource);
                 if (configMap.containsKey(DEFAULT_DATA_SOURCE) && "true".equalsIgnoreCase(configMap.get(DEFAULT_DATA_SOURCE).toString())) {
+                    if (defaultTargetDataSource != null) {
+                        throw new IllegalArgumentException("Too many default Data Source");
+                    }
                     defaultTargetDataSource = dataSource;
+                    log.info("defaultDataSource: {}", configMap.get("name"));
                 }
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
@@ -80,6 +84,7 @@ public class MultiDataSourceFactory implements DataSourceFactory {
         }
         multiDataSource.setTargetDataSources(targetDataSources);
         multiDataSource.setDefaultTargetDataSource(defaultTargetDataSource);
+        log.info("data sources: {}",targetDataSources.keySet());
     }
 
     /**

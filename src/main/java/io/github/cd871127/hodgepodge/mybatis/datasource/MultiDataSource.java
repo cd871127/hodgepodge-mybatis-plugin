@@ -16,10 +16,27 @@ public class MultiDataSource extends AbstractMultiDataSource {
 
     @Override
     protected Object determineCurrentLookupKey() {
-        return null;
+        return getCurrentDataSource();
     }
 
     public static MultiDataSource getInstance() {
         return multiDataSource;
+    }
+
+
+    private static ThreadLocal<String> currentDataSource = new ThreadLocal<>();
+
+    public void setCurrentDataSource(String dataSourceName) {
+        currentDataSource.set(dataSourceName);
+    }
+
+    public String getCurrentDataSource() {
+        return currentDataSource.get();
+    }
+
+    public String clear() {
+        String dataSourceName = getCurrentDataSource();
+        currentDataSource.remove();
+        return dataSourceName;
     }
 }
