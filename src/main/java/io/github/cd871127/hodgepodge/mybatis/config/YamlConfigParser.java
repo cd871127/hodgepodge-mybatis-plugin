@@ -23,7 +23,7 @@ public class YamlConfigParser implements ConfigParser {
             if (o instanceof Map && ((Map) o).containsKey("hodgepodge")) {
                 Object config = ((Map) o).get("hodgepodge");
                 config = ((Map) config).get("mybatis");
-                config = ((Map) config).get("datasource");
+                config = ((Map) config).get("dataSource");
                 return (List<Map<String, Object>>) config;
             }
         }

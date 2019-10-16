@@ -3,14 +3,21 @@
         PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-config.dtd">
 <configuration>
+<!--    <settings>-->
+<!--        <setting name="localCacheScope" value="STATEMENT"/>-->
+<!--    </settings>-->
     <plugins>
+        <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.MultiDataSourceInterceptor"/>
         <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.LogInterceptor"/>
+<!--        <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.ShardingInterceptor"/>-->
+
     </plugins>
     <environments default="development">
         <environment id="development">
+<!--            <transactionManager type="MANAGED"/>-->
             <transactionManager type="JDBC"/>
             <dataSource type="io.github.cd871127.hodgepodge.mybatis.datasource.MultiDataSourceFactory">
-                <property name="datasourceConfig" value="mybatis-datasource.yml"/>
+                <property name="dataSourceConfig" value="mybatis-datasource.yml"/>
             </dataSource>
         </environment>
     </environments>

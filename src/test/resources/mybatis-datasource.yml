@@ -1,6 +1,6 @@
 hodgepodge:
   mybatis:
-    datasource:
+    dataSource:
       - name: d1
         defaultDataSource: true
         driver: com.mysql.cj.jdbc.Driver
@@ -13,5 +13,11 @@ hodgepodge:
         url: jdbc:mysql://mysql.cd871127.github.io:3306/hodgepodge_read
         username: cdistc
         password: cd123321
-        dataSourceType: HIKARI
-#        builderClass: io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder
+        dataSourceType: POOL
+    #        builderClass: io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder
+    sharding:
+      - tableName: t_test_sharding
+        dataSourceName:
+        splitSize: 10
+        pattern: t_test_sharding_$num$
+        strategyClass: null

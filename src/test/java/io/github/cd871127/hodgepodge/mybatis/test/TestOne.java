@@ -10,9 +10,8 @@ public class TestOne extends PluginTest {
         SqlSession sqlSession = getSqlSession();
         try {
             TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
-            int res = testMapper.insert("d1");
-            res = testMapper.insert2("d2");
-            assert res == 1;
+            testMapper.insert("d1");
+            testMapper.insert2("d2");
         } finally {
             sqlSession.close();
         }
