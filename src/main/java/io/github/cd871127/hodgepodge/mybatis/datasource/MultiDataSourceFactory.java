@@ -1,9 +1,9 @@
 package io.github.cd871127.hodgepodge.mybatis.datasource;
 
 import io.github.cd871127.hodgepodge.mybatis.config.ConfigParser;
-import io.github.cd871127.hodgepodge.mybatis.datasource.builder.DataSourceType;
 import io.github.cd871127.hodgepodge.mybatis.config.YamlConfigParser;
 import io.github.cd871127.hodgepodge.mybatis.datasource.builder.DataSourceBuilder;
+import io.github.cd871127.hodgepodge.mybatis.datasource.builder.DataSourceType;
 import io.github.cd871127.hodgepodge.mybatis.datasource.builder.PooledDataSourceBuilder;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.collections4.CollectionUtils;
@@ -28,9 +28,9 @@ public class MultiDataSourceFactory implements DataSourceFactory {
 
     @Override
     public void setProperties(Properties properties) {
-        String configPath = properties.getProperty("datasourceConfig");
+        String configPath = properties.getProperty("dataSourceConfig");
         if (StringUtils.isEmpty(configPath)) {
-            throw new IllegalArgumentException("Properties datasourceConfig can't be empty!");
+            throw new IllegalArgumentException("Properties dataSourceConfig can't be empty!");
         }
 
         ConfigParser configParser = null;
@@ -38,12 +38,12 @@ public class MultiDataSourceFactory implements DataSourceFactory {
             configParser = new YamlConfigParser();
         }
         if (configParser == null) {
-            throw new IllegalArgumentException("Datasource config no found!");
+            throw new IllegalArgumentException("DataSource config no found!");
         }
 
         List<Map<String, Object>> configList = configParser.parse(configPath);
         if (CollectionUtils.isEmpty(configList)) {
-            throw new IllegalArgumentException("Datasource config no found!");
+            throw new IllegalArgumentException("DataSource config no found!");
         }
         setMultiDataSource(configList);
     }
@@ -84,7 +84,7 @@ public class MultiDataSourceFactory implements DataSourceFactory {
         }
         multiDataSource.setTargetDataSources(targetDataSources);
         multiDataSource.setDefaultTargetDataSource(defaultTargetDataSource);
-        log.info("data sources: {}",targetDataSources.keySet());
+        log.info("data sources: {}", targetDataSources.keySet());
     }
 
     /**

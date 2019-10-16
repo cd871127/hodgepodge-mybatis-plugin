@@ -1,7 +1,5 @@
 package io.github.cd871127.hodgepodge.mybatis.datasource.builder;
 
-import lombok.Data;
-import lombok.experimental.Accessors;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 
 /**
