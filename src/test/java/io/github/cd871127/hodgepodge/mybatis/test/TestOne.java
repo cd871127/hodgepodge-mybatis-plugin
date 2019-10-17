@@ -11,7 +11,7 @@ public class TestOne extends PluginTest {
         try {
             TestMapper testMapper = sqlSession.getMapper(TestMapper.class);
             testMapper.insert("d1");
-            testMapper.insert2("d2");
+//            testMapper.insert2("d2");
         } finally {
             sqlSession.close();
         }

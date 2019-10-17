@@ -9,13 +9,14 @@
     <plugins>
         <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.MultiDataSourceInterceptor"/>
         <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.LogInterceptor"/>
-<!--        <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.ShardingInterceptor"/>-->
+        <plugin interceptor="io.github.cd871127.hodgepodge.mybatis.interceptor.ShardingInterceptor"/>
 
     </plugins>
     <environments default="development">
         <environment id="development">
-<!--            <transactionManager type="MANAGED"/>-->
-            <transactionManager type="JDBC"/>
+            <transactionManager type="MANAGED"/>
+<!--            <transactionManager type="JDBC"/>-->
+<!--            <transactionManager type="io.github.cd871127.hodgepodge.mybatis.transaction.MultiDataSourceManagedTransactionFactory"/>-->
             <dataSource type="io.github.cd871127.hodgepodge.mybatis.datasource.MultiDataSourceFactory">
                 <property name="dataSourceConfig" value="mybatis-datasource.yml"/>
             </dataSource>

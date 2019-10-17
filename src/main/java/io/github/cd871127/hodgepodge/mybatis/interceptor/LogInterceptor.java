@@ -39,7 +39,7 @@ public class LogInterceptor extends AbstractMybatisInterceptor {
     @Override
     public Object intercept(Invocation invocation) throws Throwable {
         try {
-            MappedStatement mappedStatement = (MappedStatement) invocation.getArgs()[0];
+            MappedStatement mappedStatement = getArg(invocation, MappedStatement.class);
             Object parameter = null;
             if (invocation.getArgs().length >= 1) {
                 parameter = invocation.getArgs()[1];
