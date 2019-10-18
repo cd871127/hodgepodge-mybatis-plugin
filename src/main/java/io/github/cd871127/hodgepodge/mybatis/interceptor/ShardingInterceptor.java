@@ -46,15 +46,18 @@ public class ShardingInterceptor extends AbstractMybatisInterceptor {
         field.setAccessible(true);
         MappedStatement mappedStatement = (MappedStatement) field.get(preparedStatementHandler);
         Sharding sharding = getAnnotation(mappedStatement, Sharding.class);
-        Table[] tables = sharding.tables();
-        for (Table table : tables) {
-            table.cols();
-            ShardingStrategy strategy = (ShardingStrategy) table.strategyClass().newInstance();
-            sql = strategy.sharding(sql, table.tableName(), table.cols());
+        if (sharding != null) {
+            Table[] tables = sharding.tables();
+            for (Table table : tables) {
+                table.cols();
+                ShardingStrategy strategy = (ShardingStrategy) table.strategyClass().newInstance();
+//                sql = strategy.sharding(sql, table.tableName(), table.cols(), boundSql.getParameterObject());
+                boundSql.getParameterObject();
+            }
+            field = BoundSql.class.getDeclaredField("sql");
+            field.setAccessible(true);
+            field.set(boundSql, sql);
         }
-        field = BoundSql.class.getDeclaredField("sql");
-        field.setAccessible(true);
-        field.set(boundSql, sql);
         return invocation.proceed();
     }
 }
